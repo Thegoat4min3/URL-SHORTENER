@@ -6,6 +6,8 @@ import com.example.backend.entity.ShortLink;
 import com.example.backend.service.ShortLinkService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,9 +30,14 @@ public class ShortLinkController {
 
 
     @GetMapping()
-    public ResponseEntity<List<ShortLinkResponseDTO>> getAllShortLinks() {
-        List<ShortLinkResponseDTO> links = shortLinkService.getMyLinks();
-        return  ResponseEntity.ok(links);
+    public ResponseEntity<Page<ShortLinkResponseDTO>>getAllShortLinks(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "6") int size
+    ) {
+
+        return ResponseEntity.ok(
+                shortLinkService.getMyLinks(PageRequest.of(page, size))
+        );
     }
 
     @DeleteMapping("/delete/{id}")

@@ -6,7 +6,9 @@ import com.example.backend.entity.ShortLink;
 import com.example.backend.entity.User;
 import com.example.backend.repository.ShortLinkRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.logging.structured.GraylogExtendedLogFormatProperties;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -63,13 +65,14 @@ public class ShortLinkService {
         return shortLink.get().getOriginalUrl();
     }
 
-    public List<ShortLinkResponseDTO> getMyLinks(){
+    public Page<ShortLinkResponseDTO> getMyLinks(Pageable pageable){
 
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        List<ShortLink> links = shortLinkRepository.findByUser(user);
+        Page<ShortLink> links =
+                shortLinkRepository.findByUser(user, pageable);
 
-        return links.stream().map(link -> {
+        return links.map(link -> {
             ShortLinkResponseDTO response = new ShortLinkResponseDTO();
             response.setId(link.getId());
             response.setOriginalUrl(link.getOriginalUrl());
@@ -78,7 +81,7 @@ public class ShortLinkService {
             response.setCreatedAt(link.getCreatedAt());
             response.setExpiresAt(link.getExpiresAt());
             return response;
-        }).toList();
+        });
     }
 
 
