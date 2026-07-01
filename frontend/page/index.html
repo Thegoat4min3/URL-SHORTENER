@@ -1,0 +1,134 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Geist:wght@400;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../style/style.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-[#0D1C2D] text-white font-[Inter]" >
+        <header>
+            <nav class="bg-[#000000] flex justify-between items-center px-12 py-4">
+                <div class="logo">
+                    <h1 class="text-[#A0A3FF] text-[40px] font-bold "> Shorty </h1>
+                </div>
+
+                <div class="flex items-center gap-6 list-none ">
+                    <li class="nav-link cursor-pointer hover:text-[#A0A3FF] transition">Home</li>
+                    <li class="nav-link cursor-pointer hover:text-[#A0A3FF] transition">Dashboard</li>
+                </div>
+
+                <div>
+                    <button onclick="login()" class="cursor-pointer text-[#07006C] bg-[#A0A3FF] px-4 py-2 border rounded-lg hover:bg-[#1B1B23]">
+                        Login
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+
+        <main>
+            <div class="text-center mt-[90px] mb-[70px] ">
+                <h1 class="text-[57px] font-bold ">
+                    Shorten your links
+                </h1>
+
+                <p class="text-[13px]">
+                    Transform Long, complex URLs into clean, manageable links.Fast,reliable, and equipped <br>
+                    with detailed analytics for power users.
+                </p>
+            </div>
+
+            <div class="mx-auto bg-[#233143] w-2/3 px-[50px] py-[35px] border-gray-600 rounded-lg mb-[250px]">
+                <form action="" class="flex justify-between items-end gap-2">
+
+                    <div class="relative flex-1">
+                        <i class="fa-solid fa-link absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"></i>
+                        <input type="text" name="orignalLink" id="orignalLink" placeholder="Paste your long URL here..."
+                               class="w-full pl-9 pr-4 py-2 border border-gray-600 rounded bg-[#233143] outline-none placeholder-gray-500 text-white">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label class="text-gray-400 text-sm mb-1">Expiry (DAYS)</label>
+                        <input type="number" name="expiresDays" id="expiresDays" min="1" max="365" value="1"
+                               class="w-24 px-3 py-2 border border-gray-600 rounded bg-[#233143] outline-none text-white text-center">
+                    </div>
+
+
+                    <button onclick="createLink()" class="bg-[#8083FF] px-7 py-3 rounded-lg hover:bg-[#6466f1] transition cursor-pointer font-semibold whitespace-nowrap text-white">
+                        Shorten <i class="fa-solid fa-bolt"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="flex justify-around items-end gap-2">
+
+                <div class="bg-[#233143] px-[25px] py-[15px] border-gray-600 rounded-lg">
+                    <h4>
+                        <i class="fa-regular fa-clock text-[#A0A3FF] py-4"></i> <br>
+                        <span class="font-bold">Fast Redirects</span>
+                    </h4>
+
+                    <p class="py-4">
+                        Global edge network ensures your links resolve in <br>
+                        milliseconds anywhere in the world.
+                    </p>
+                </div>
+
+                <div class="bg-[#233143] px-[25px] py-[15px] border-gray-600 rounded-lg">
+                    <h4>
+                        <i class="fa-solid fa-chart-line text-[#A0A3FF] py-4"></i> <br>
+                        <span class="font-bold">Real-time Analytics</span>
+                    </h4>
+
+                    <p class="py-4">
+                        Track clicks, Geographic data, and referral<br>
+                        sources with pinpoint accuracy.
+                    </p>
+                </div>
+
+                <div class="bg-[#233143] px-[25px] py-[15px] border-gray-600 rounded-lg">
+                    <h4>
+                        <i class="fa-solid fa-shield text-[#A0A3FF] py-4"></i> <br>
+                        <span class="font-bold"> Link Security </span>
+                    </h4>
+
+                    <p class="py-4">
+                        Set custom expiry dates and paswords for<br>
+                        sensitive destination URLs.
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-[#000000]  mt-[100px]">
+            <div class="flex justify-around items-center px-[15px] py-[50px]">
+                <div>
+                    <h4 class="font-bold ">
+                        Shorty
+                    </h4>
+                </div>
+
+                <div class="flex justify-around items-center list-none gap-4 text-[13px] text-[#ACAAB5]">
+                    <li>Privacy</li>
+                    <li>Terms</li>
+                    <li>Support</li>
+                </div>
+
+                <div>
+                    <p class="text-[#ACAAB5] text-[13px]">
+                        @2024 Shorty. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../js/api.js"></script>
+        <script src="../js/auth.js"></script>
+    </body>
+</html>

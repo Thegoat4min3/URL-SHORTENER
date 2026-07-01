@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Geist:wght@400;700;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../style/style.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-[#0D1C2D] text-white font-[Inter]" >
+
+    <main class="min-h-screen flex flex-col items-center justify-center gap-6 px-4">
+           <h2 class="text-center mt-[10px] text-xl text-[#6366F1] font-bold">
+               <i class="fa-solid fa-link"></i>
+               Shorty
+           </h2>
+
+
+        <div class="bg-[#233143] px-8 py-10 rounded-lg w-full max-w-md">
+
+                <div class="text-center mb-[30px]">
+                    <h1 class="text-2xl font-bold font-[Geist] mb-2">Welcome Back</h1>
+
+                    <p class="text-gray-400 text-sm">Manage your links with professional precision.</p>
+                </div>
+
+                <form action="" class="flex flex-col gap-5 mt-4">
+                    <div class="relative items-center">
+                        <label class="text-xs text-[#69788C] py-8">EMAIL ADDRESS</label> <br>
+                        <i class="fa-solid fa-envelope absolute text-[#39485A] top-10 pl-2"></i>
+                        <input type="email" name="email" id="email" placeholder="name@company.com" class="w-full pl-9 bg-[#1B1B23] placeholder-[#39485A] px-4 py-3 rounded-lg outline-none text-white"> <br>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <label class="text-xs text-[#69788C]">PASSWORD</label>
+                            <p class="text-[#6366F1] text-sm hover:underline cursor-pointer">Forgot ?</p>
+                        </div>
+
+                        <div class="relative">
+                            <i class="fa-solid fa-lock absolute left-3 top-1/2 -translate-y-1/2 text-[#39485A]"></i>
+                            <input type="password" name="password" id="password" placeholder="••••••••"
+                                   class="w-full pl-9 bg-[#1B1B23] placeholder-[#39485A] py-3 rounded-lg outline-none text-white "> <br>
+                        </div>
+                    </div>
+
+                    <button type="submit" onclick="login()" class="w-full bg-[#6366F1] hover:bg-[#4f52d6] transition py-2 rounded-lg font-semibold cursor-pointer mt-2">
+                        Login
+                    </button>
+
+                    <p class="text-center text-gray-400 text-sm">
+                        Don't have an account ? <a href="" class="text-[#6366F1] hover:underline">Register</a>
+                    </p>
+                </form>
+            </div>
+
+            <p class="text-gray-600 text-xs">@ 2024 Shorty. All rights reserved</p>
+        </main>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+
+    </body>
+</html>
